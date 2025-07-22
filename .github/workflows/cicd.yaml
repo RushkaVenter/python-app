@@ -37,8 +37,9 @@ jobs:
         shell: bash
         run: |
           echo ${{ needs.ci.outputs.commit_id }}
+          ls
           pip install yq
-          yq -Yi '.image.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
+          yq -Yi '.image.tag = "${{ needs.ci.outputs.commit_id }}"' python-app/charts/python-app/values.yaml
 
       - name: Install ArgoCD CLI
         shell: bash
