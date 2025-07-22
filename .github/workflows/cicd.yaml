@@ -10,6 +10,8 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    outputs:
+      commit_id : ${{ env.COMMIT_ID }}
     steps:
       - name: Shorten commit id
         shell: bash
@@ -31,6 +33,13 @@ jobs:
     runs-on: self-hosted
     needs: ci
     steps:
+      - name: Modify values file
+        shell: bash
+        run: |
+          echo ${{ needs.ci.outputs.commit_id }}
+          pip install yq
+          yq -Y '.image.tag = "${{ needs.ci.outputs.commit_id }}"' -i charts/python-app/values.yaml
+
       - name: Install ArgoCD CLI
         shell: bash
         run: |
