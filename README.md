@@ -63,3 +63,7 @@ Invoke-WebRequest -Uri $url -OutFile $output
 ```
 $env:ARGOCD_SERVER = "https://argocd.test.com"
 ```
+
+```
+argocd login argocd.test.com --insecure --grpc-web --username admin --password <password>
+```
