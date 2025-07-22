@@ -11,13 +11,12 @@ applicationSet:
   replicas: 1
 
 global:
-  domain: argocd.text.com
+  domain: argocd.test.com
 
 certificate:
   enabled: true
 
 server:
-  replicas: 1
   ingress:
     enabled: true
     ingressClassName: nginx
