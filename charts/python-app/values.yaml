@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: rushkaventervector/python-app
   pullPolicy: IfNotPresent
-  tag: "7815c8"
+  tag: "a0e190"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
