@@ -13,6 +13,8 @@ jobs:
     outputs:
       commit_id : ${{ env.COMMIT_ID }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
         
       - name: Shorten commit id
         shell: bash
@@ -33,7 +35,10 @@ jobs:
   cd:
     runs-on: self-hosted
     needs: ci
-    steps:        
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Modify values file
         shell: bash
         run: |
