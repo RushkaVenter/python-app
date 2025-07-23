@@ -67,3 +67,8 @@ $env:ARGOCD_SERVER = "https://argocd.test.com"
 ```
 argocd login argocd.test.com --insecure --grpc-web --username admin --password <password>
 ```
+
+# Backstage
+```
+docker run --rm -e AUTH_GITHUB_CLIENT_ID=Ov23lidL0O5JNlKOM7Rg -e AUTH_GITHUB_CLIENT_SECRET=secret -p 3000:3000 -ti -p 7007:7007 -v /home/rushkaventer/backstage-app:/app -w /app node:18-bookworm-slim bash
+```
