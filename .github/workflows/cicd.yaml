@@ -46,6 +46,7 @@ jobs:
           ls
           pip install yq
           yq -Yi '.image.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
+          cat charts/python-app/values.yaml
 
       - name: Install ArgoCD CLI
         shell: bash
